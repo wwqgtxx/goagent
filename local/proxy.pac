@@ -5,7 +5,6 @@ function FindProxyForURL(url, host) {
     // Predefined rules, You could modify them by yourself.
     if (
             dnsDomainIs(host, '.googlesyndication.com') ||
-            dnsDomainIs(host, '.google-analytics.com') ||
             dnsDomainIs(host, '.doubleclick.net') ||
             host == 'biz.weibo.com' ||
             host == 'a.alimama.cn' ||
