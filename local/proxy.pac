@@ -8,6 +8,7 @@ function FindProxyForURL(url, host) {
             dnsDomainIs(host, '.doubleclick.net') ||
             host == 'biz.weibo.com' ||
             host == 'a.alimama.cn' ||
+            host == 'm1.ifengimg.com' ||
             host == 'a.baidu.com' ||
             host == 'cb.baidu.com' ||
             host == 'cpro.baidu.com' ||
