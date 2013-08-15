@@ -2111,6 +2111,9 @@ class PACServerHandler(BaseHTTPServer.BaseHTTPRequestHandler):
     pacfile = os.path.join(os.path.dirname(__file__), common.PAC_FILE)
     onepixel = b'GIF89a\x01\x00\x01\x00\x80\xff\x00\xc0\xc0\xc0\x00\x00\x00!\xf9\x04\x01\x00\x00\x00\x00,\x00\x00\x00\x00\x01\x00\x01\x00\x00\x02\x02D\x01\x00;'
 
+    def address_string(self):
+        return '%s:%s' % self.client_address[:2]
+
     def first_run(self):
         if time.time() - os.path.getmtime(self.pacfile) > 24 * 60 * 60:
             default = '%s:%s' % (common.PROXY_HOST, common.PROXY_PORT) if common.PROXY_ENABLE else 'DIRECT'
