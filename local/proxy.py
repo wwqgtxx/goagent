@@ -729,7 +729,8 @@ class HTTPUtil(object):
                 server_hostname = b'www.google.com' if address[0].endswith('.appspot.com') else None
                 ssl_sock = SSLConnection(self.ssl_context, sock)
                 ssl_sock.set_connect_state()
-                ssl_sock.set_tlsext_host_name(server_hostname)
+                if server_hostname:
+                    ssl_sock.set_tlsext_host_name(server_hostname)
                 # start connection time record
                 start_time = time.time()
                 # TCP connect
