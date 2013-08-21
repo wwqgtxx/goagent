@@ -1656,7 +1656,7 @@ class GAEProxyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
                 common.GAE_CRLF = 0
             self.wfile.write(('HTTP/1.1 %s\r\n%s\r\n' % (response.status, ''.join('%s: %s\r\n' % (k.title(), v) for k, v in response.getheaders() if k != 'Transfer-Encoding'))))
             while 1:
-                data = response.read(8192)
+                data = response.read(8192).encode()
                 if not data:
                     break
                 self.wfile.write(data)
